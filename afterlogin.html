@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Café Menu - After Login</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="menu">
+        <div class="top-bar">
+            <button onclick="logout()" class="logout-button">Logout</button> <!-- Logout Button -->
+            <a href="page2.html" class="next-button login-button">Next →</a> <!-- Next Page Button styled as a login button -->
+        </div>
+
+        <header>
+            <h1 class="fade-in">CAMPER CAFE</h1>
+            <p class="established fade-in">Est. 2020</p>
+            <hr />
+        </header>
+
+        <main>
+            <section class="fade-in">
+                <h2>Coffee</h2>
+                <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/coffee.jpg" alt="coffee icon" />
+                <div class="items">
+                    <article class="item" onclick="showPopup('French Vanilla', 'A smooth and creamy coffee with a hint of vanilla flavor. Perfect for a sweet treat!')">
+                        <p class="flavor">French Vanilla</p>
+                        <p class="price">$3.00</p>
+                    </article>
+                    <article class="item" onclick="showPopup('Caramel Macchiato', 'A rich espresso combined with steamed milk and caramel syrup, offering a delightful sweetness.')">
+                        <p class="flavor">Caramel Macchiato</p>
+                        <p class="price">$3.75</p>
+                    </article>
+                    <article class="item" onclick="showPopup('Pumpkin Spice', 'A seasonal favorite, blending espresso with steamed milk and pumpkin spice syrup.')">
+                        <p class="flavor">Pumpkin Spice</p>
+                        <p class="price">$3.50</p>
+                    </article>
+                    <article class="item" onclick="showPopup('Hazelnut', 'A nutty coffee flavor that brings warmth and comfort in every sip.')">
+                        <p class="flavor">Hazelnut</p>
+                        <p class="price">$4.00</p>
+                    </article>
+                    <article class="item" onclick="showPopup('Mocha', 'A delicious combination of espresso, steamed milk, and rich chocolate syrup.')">
+                        <p class="flavor">Mocha</p>
+                        <p class="price">$4.50</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="fade-in">
+                <h2>Desserts</h2>
+                <img src="https://cdn.freecodecamp.org/curriculum/css-cafe/pie.jpg" alt="pie icon" />
+                <div class="items">
+                    <article class="item" onclick="showPopup('Donut', 'A sweet, fried dough pastry that is often glazed or filled with various toppings.')">
+                        <p class="dessert">Donut</p>
+                        <p class="price">$1.50</p>
+                    </article>
+                    <article class="item" onclick="showPopup('Cherry Pie', 'A classic dessert made with tart cherries and a flaky crust, served warm.')">
+                        <p class="dessert">Cherry Pie</p>
+                        <p class="price">$2.75</p>
+                    </article>
+                    <article class="item" onclick="showPopup('Cheesecake', 'A rich and creamy dessert made with cream cheese and a graham cracker crust.')">
+                        <p class="dessert">Cheesecake</p>
+                        <p class="price">$3.00</p>
+                    </article>
+                    <article class="item" onclick="showPopup('Cinnamon Roll', 'A soft pastry rolled with cinnamon and sugar, topped with cream cheese frosting.')">
+                        <p class="dessert">Cinnamon Roll</p>
+                        <p class="price">$2.50</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <hr class="bottom-line" />
+        <footer class="fade-in">
+            <p class="address">If you have any questions, please contact us.</p>
+            <a href="mailto:mbullolewis@gmail.com" class ="fade-in">mbullolewis@gmail.com</a>
+            <br />
+            <a href="terms.html" class="terms-link fade-in">Read Terms and Services</a>
+        </footer>
+    </div>
+
+    <!-- Popup HTML -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="closeButton">&times;</span>
+            <h2 id="popup-title"></h2>
+            <p id="popup-description"></p>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(title, description) {
+            document.getElementById('popup').style.display = 'flex';
+            document.getElementById('popup-title').innerHTML = title;
+            document.getElementById('popup-description').innerHTML = description;
+        }
+
+        document.getElementById('closeButton').onclick = function() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Close the popup if the user clicks outside of it
+        window.onclick = function(event) {
+            const popup = document.getElementById('popup');
+            if (event.target === popup) {
+                popup.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
